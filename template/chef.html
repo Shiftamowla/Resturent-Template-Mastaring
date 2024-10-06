@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+
+{% block body %}
+    <section id="chefs" class="chefs section">
+
+      <!-- Section Title -->
+      <div class="container section-title" data-aos="fade-up">
+        <h2>chefs</h2>
+        <p><span>Our</span> <span class="description-title">Proffesional Chefs<br></span></p>
+      </div><!-- End Section Title -->
+
+      <div class="container">
+
+        <div class="row gy-4">
+            
+
+            {% for i in data %}
+                
+                
+
+          <div class="col-lg-4 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="100">
+            <div class="team-member">
+              <div class="member-img">
+                <img src="/{{i.img}}" class="img-fluid" alt="">
+                <div class="social">
+                  <a href=""><i class="bi bi-twitter-x"></i></a>
+                  <a href=""><i class="bi bi-facebook"></i></a>
+                  <a href=""><i class="bi bi-instagram"></i></a>
+                  <a href=""><i class="bi bi-linkedin"></i></a>
+                </div>
+              </div>
+              <div class="member-info">
+                <h4>{{i.Name}}</h4>
+                <span>{{i.Chef}}</span>
+                <p>{{i.Description}}</p>
+                <p><a href="{% url 'delete' i.id %}">Delete</a>
+                  <a href="{% url 'edit' i.id %}">Edit</a></p>
+              </div>
+            </div>
+          </div><!-- End Chef Team Member -->
+          {% endfor %}
+
+        </div>
+
+      </div>
+
+    </section><!-- /Chefs Section -->
+    
+{% endblock body %}
+
+    

@@ -1,0 +1,57 @@
+{% extends 'base.html' %}
+
+{% block body %}
+    <section id="menu" class="menu section">
+
+      <!-- Section Title -->
+      <div class="container section-title" data-aos="fade-up">
+        <h2>Our Menu</h2>
+        <p><span>Check Our</span> <span class="description-title">Yummy Menu</span></p>
+      </div><!-- End Section Title -->
+
+      <div class="container">
+
+
+
+        <div class="tab-content" data-aos="fade-up" data-aos-delay="200">
+
+          <div class="tab-pane fade active show" id="menu-starters">
+
+            <div class="tab-header text-center">
+              <p>Menu</p>
+              <h3>Starters</h3>
+            </div>
+
+            <div class="row gy-5">
+            {% for i in data %}
+
+
+
+              <div class="col-lg-4 menu-item">
+                <a href="/static/assets2/img/menu/menu-item-1.png" class="glightbox"><img src="/{{i.img}}" class="menu-img img-fluid" alt=""></a>
+                <h4>{{i.Name}}</h4>
+                <p class="ingredients">
+                  {{i.Description}}
+                </p>
+                <p class="price">
+                  {{i.Price}}
+                </p>
+                <p><a href="{% url 'deletemenu' i.id %}">Delete</a>
+                  <a href="{% url 'editmenu' i.id %}">Edit</a></p>
+              </div><!-- Menu Item -->
+
+            </div>
+          {% endfor %}
+
+          </div><!-- End Starter Menu Content -->
+
+
+        </div>
+
+      </div>
+
+    </section><!-- /Menu Section -->
+    
+{% endblock body %}
+
+    
